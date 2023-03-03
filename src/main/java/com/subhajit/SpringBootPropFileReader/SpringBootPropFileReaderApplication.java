@@ -12,13 +12,13 @@ import org.springframework.core.io.Resource;
 @PropertySources({
 		@PropertySource("classpath:custom1.properties"),
 		@PropertySource("classpath:custom2.properties"),
-		@PropertySource(value = "classpath:custom3.properties", ignoreResourceNotFound = true),
-		@PropertySource(value = "file:/D:\\External_props\\custom4.properties")
+		@PropertySource(value = "classpath:file_absent.properties", ignoreResourceNotFound = true),
+		@PropertySource(value = "file:/D:\\sb-property\\custom3.properties"),
+		@PropertySource("classpath:custom-profile-${spring.profiles.active}.properties")
 })
-public class SpringBootPropFileReaderApplication extends ServletInitializer{
+public class SpringBootPropFileReaderApplication{
 
 	public static void main(String[] args) {
-		System.out.println("In main.......");
 		SpringApplication.run(SpringBootPropFileReaderApplication.class, args);
 	}
 
